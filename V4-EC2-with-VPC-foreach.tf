@@ -8,7 +8,7 @@ resource "aws_instance" "demo-server" {
   key_name = "dpp"
   vpc_security_group_ids = [aws_security_group.demo-sg.id]
   subnet_id = aws_subnet.dpp-public-subnet-01.id
-  for_each = toset([Jenkin-master, build-slave, Ansible-server])
+  for_each = toset(["Jenkin-master", "build-slave", "Ansible-server"])
     tags = {
         Name = "${each.key}"
     }
